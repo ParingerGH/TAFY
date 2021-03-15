@@ -23,7 +23,7 @@ no_not_term = 0
 
 
 
-# Левосторонний обход
+# первое попавшееся правило обход
 
 while len(stack) > 0 and len(ready) <= strings:
     
