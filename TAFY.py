@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 def iterate_left(stack,ready,rules,min_len,max_len,debug):
@@ -85,14 +85,14 @@ stack.append(string)
 
         
 while len(stack) > 0:
-    iterate_left(stack,ready,rules,2,4,False)
+    iterate_left(stack,ready,rules,2,2,False)
             
 print("\n Цепочки: \n")
 for i in range(len(ready)):
     print(i,") ",ready[i])
 
 
-# In[7]:
+# In[5]:
 
 
 def iterate_right(stack,ready,rules,min_len,max_len,debug):
@@ -113,6 +113,8 @@ def iterate_right(stack,ready,rules,min_len,max_len,debug):
     
     # проходим все элементы строки СЛЕВА на право (1)
     cur_str = stack[len(stack)-1][::-1]
+    
+    
     for char in cur_str:
         
         
@@ -132,7 +134,10 @@ def iterate_right(stack,ready,rules,min_len,max_len,debug):
             # если элемент это ключ из правил, то заменяем (2)
             if char == key:
                 no_not_term = 0
-                tmp = stack.pop(len(stack)-1)
+                
+                tmp = cur_str
+                stack.pop(len(stack)-1)
+                
 
                 for j in range(len(rules[key])):
                         stack.append(tmp.replace(key, rules[key][j], 1))
