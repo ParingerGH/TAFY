@@ -90,7 +90,7 @@ def iterate_right(stack,ready,rules,min_len,max_len,debug):
             if no_not_term == len(rules)*len(e):
          
                 #-------------------------------------
-                if len(e) <= max_len and len(e) >= min_len:
+                if len(replaseE(e,null_simbol)) <= max_len and len(replaseE(e,null_simbol)) >= min_len:
                     
                     
                     
@@ -130,7 +130,7 @@ for i in ready:
     count += 1
 
 
-# In[10]:
+# In[14]:
 
 
 def replaseE(string, null_simbol):
@@ -219,7 +219,7 @@ def iterate_left(stack,ready,rules,min_len,max_len,debug):
             if no_not_term == len(rules)*len(e):
          
                 #-------------------------------------
-                if len(e) <= max_len and len(e) >= min_len:
+                if len(replaseE(e,null_simbol)) <= max_len and len(replaseE(e,null_simbol)) >= min_len:
                     
                     
                     
@@ -250,7 +250,7 @@ stack.add(string)
 
         
 while len(stack) > 0:
-    iterate_left(stack,ready,rules,0,4,True)
+    iterate_left(stack,ready,rules,4,6,True)
         
 count = 1
 print("\n Цепочки: \n")
