@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[22]:
 
 
 def replaseE(string, null_simbol):
@@ -71,7 +71,7 @@ def iterate_right(stack,ready,rules,min_len,max_len,debug):
                 
 
                 for j in range(len(rules[key])):
-                        stack.add(tmp.replace(key, rules[key][j], 1))
+                        stack.add(tmp.replace(key, rules[key][j], 1)[::-1])
                         
                         #ОТЛАДКА
                         if debug:
@@ -109,8 +109,27 @@ def iterate_right(stack,ready,rules,min_len,max_len,debug):
         
 rules = dict()
 
-rules['S'] = 'AAA',
-rules['A'] = 'AAA','0','e'
+#
+#rules['S'] = 'AAA',
+#rules['A'] = 'AAA','0','e'
+#string = "S"
+
+#1
+#rules['S'] = 'aQb','accb',
+#rules['Q'] = 'cSc',
+#string = "S"
+
+#6
+#rules['S'] = 'aSb','bSa','SS','e'
+
+#7 чот не то она там написала
+#rules['S'] = 'AB','aAb','bBa','e'
+
+#8
+rules['S'] = 'A#','B#',
+rules['A'] = 'a','Ba'
+rules['B'] = 'b','Bb','Ab'
+
 string = "S"
 
 null_simbol = 'e'
@@ -121,7 +140,7 @@ stack.add(string)
 
         
 while len(stack) > 0:
-    iterate_right(stack,ready,rules,0,4,True)
+    iterate_right(stack,ready,rules,0,7,True)
         
 count = 1
 print("\n Цепочки: \n")
@@ -130,7 +149,7 @@ for i in ready:
     count += 1
 
 
-# In[14]:
+# In[23]:
 
 
 def replaseE(string, null_simbol):
@@ -238,9 +257,14 @@ def iterate_left(stack,ready,rules,min_len,max_len,debug):
         
 rules = dict()
 
-rules['S'] = 'AAA',
-rules['A'] = 'AAA','0','e'
-string = "S"
+#rules['S'] = 'AAA',
+#rules['A'] = 'AAA','0','e'
+#string = "S"
+
+#8
+rules['S'] = 'A#','B#',
+rules['A'] = 'a','Ba'
+rules['B'] = 'b','Bb','Ab'
 
 null_simbol = 'e'
 
